@@ -85,8 +85,7 @@ $LogDirectory = "C:\temp\prtg-notifications-msteam.log"
 $ackmessage = "Problem has been acknowledged via OnCall."
 
 # the acknowledgement URL
-$ackURL = [string]::Format("{0}/api/acknowledgealarm.htm?id={1}&ackmsg={2}&username={3}&passhash={4}",
-$PRTGServer,$sensorID,$ackmessage,$PRTGUsername,$PRTGPasshash);
+$ackURL = [string]::Format("{0}/api/acknowledgealarm.htm?id={1}&ackmsg={2}&username={3}&passhash={4}",$PRTGServer,$sensorID,$ackmessage,$PRTGUsername,$PRTGPasshash);
 
 # Autoresolve an alert in OnCall
 if($status -eq "Up")
@@ -102,8 +101,7 @@ $image_datetime = [datetime]::parse($datetime)
 $sdate = $image_datetime.AddHours(-1).ToString("yyyy-MM-dd-HH-mm-ss")
 $edate = $image_datetime.ToString("yyyy-MM-dd-HH-mm-ss")
 
-$image_url = "$PRTGServer/chart.png?type=graph&graphid=-1&avg=0&width=1000&height=400
-&username=$PRTGUsername&passhash=$PRTGPasshash&id=$sensorid&sdate=$sdate&edate=$edate"
+$image_url = "$PRTGServer/chart.png?type=graph&graphid=-1&avg=0&width=1000&height=400&username=$PRTGUsername&passhash=$PRTGPasshash&id=$sensorid&sdate=$sdate&edate=$edate"
 
 $Body = @{
             "alert_uid"="$sensorid $date";
